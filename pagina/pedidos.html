@@ -1,0 +1,31 @@
+{{define "pedidos"}}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Carrito de Compras</title>
+    {{template "header"}}
+    <h1>Prdoductos</h1>
+    <hr>
+    <div class="container">
+        <table class="table table-bordered table-hover ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Costo</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}}
+                    <tr>
+                        <td> {{.Id}} </td>
+                        <td> {{.Costo}} </td>
+                        <td> {{.Fecha}} </td>
+                    </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    {{template "footer"}}
+{{end}}

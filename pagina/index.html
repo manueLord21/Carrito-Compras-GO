@@ -1,0 +1,58 @@
+{{define "index"}}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Carrito de Compras</title>
+    {{template "header"}}
+    <h1>Prdoductos</h1>
+    <hr>
+    <div class="container">
+        <form action="/insertar" method="POST">
+            <table class="table table-bordered table-hover ">
+                <tr>
+                    <th width="50">#</th>
+                    <th>Producto</th>
+                    <th>Nombre</th>
+                    <th width="100">Precio</th>
+                    <th width="80">Cantidad</th>
+                </tr>
+
+                {{range .}}
+                <tr>
+                    <td>
+                        <p class="mon"><input type="checkbox" name="opt" value="{{.Id}}"> </p>
+                    </td>
+                    <td><input type="hidden" name="arch" value="{{.Archivo}}"><img src="../public/img/{{.Archivo}}"
+                            alt="Image no disponible" /></td>
+                    <td>
+                            <p class="mon"><input type="hidden" name="name" value="{{.Nombre}}" />{{.Nombre}}</p>
+                    </td>
+                    <td>
+                        <p class="mon"><input type="hidden" name="cost" value="{{.Costo}}" />${{.Costo}}MX</p>
+                    </td>
+                    <td>
+                        <p class="mon">
+                            <select id="cant" name="cant" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+            <input type="submit" class="btn btn-outline-success" value="Agregar al carrito">
+        </form>
+    </div>
+
+    {{template "footer"}}
+    {{end}}

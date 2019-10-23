@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Sumar dos Numeros JavaScript</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Ingrese dos numeros</legend>
+        <label for="">Numero 1:</label>
+        <input type="hidden" id="txtN1" value="3">
+        <br><br>
+        <label for="">Numero 2:</label>
+        <input type="hidden" id="txtN2" value="3">
+        <br><br>
+        <p id="total"></p>
+    </fieldset>
+</body>
+<script>
+    var n1 = document.getElementById('txtN1').value;
+    var n2 = document.getElementById('txtN2').value;
+    var suma = parseInt(n1) + parseInt(n2);
+    alert("La suma: " + suma)
+    document.getElementById('total').innerHTML = suma;
+    //alert("La suma es: " + suma)
+</script>
+
+</html>

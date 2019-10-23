@@ -1,0 +1,53 @@
+{{define "lista"}}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Carrito de Compras</title>
+    {{template "header"}}
+    <h1>Prdoductos</h1>
+    <hr>
+    <div class="container">
+        <form action="/agregar" method="POST">
+            <table class="table table-bordered table-hover ">
+                <tr>
+                    <th>Producto</th>
+                    <th></th>
+                    <th width="100">Cantidad</th>
+                    <th width="40"></th>
+                    <th width="80">Precio</th>
+                    <th width="100">Resultado</th>
+                </tr>
+
+                {{range .}}
+                <tr>
+                    <td><input type="hidden" name="arch" value="{{.Archivo}}" /><img src="../public/img/{{.Archivo}}"
+                            alt="Image no disponible" /></td>
+                    <td>
+                        <p class="mon"><input type="hidden" name="name" value="{{.Nombre}}" />{{.Nombre}}</p>
+                    </td>
+                    <td>
+                        <p id="c"><input type="hidden" name="cant" value="{{.Cantidad}}" />{{.Cantidad}}</p>
+                        <p>
+                            <a href="/sumar?id={{.Producto}}&can={{.Cantidad}}" class="btn btn-outline-primary">+</a>
+                            <a href="/restar?id={{.Producto}}&can={{.Cantidad}}" class="btn btn-outline-danger">-
+                            </a>
+                        </p>
+                    </td>
+                    <td><a href="/eliminar?id={{.Producto}}"><img class="del" src="../public/img/delete.svg" /></a></td>
+                    <td>
+                        <p class="mon"><input type="hidden" name="cost" value="{{.Costo}}"/>${{.Costo}} MX</p>
+                    </td>
+                    <td>
+                        <p class="mon"><input type="hidden" id="total" value="{{.Resultado}}">${{.Resultado}} MX</p>
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+            <br>
+            <input type="submit" class="btn btn-outline-success" value="Agregar al carrito">
+        </form>
+    </div>
+
+    {{template "footer"}}
+    {{end}}

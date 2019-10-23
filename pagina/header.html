@@ -1,0 +1,27 @@
+{{define "header"}}
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../public/css/style.css" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-between" style="background-color: #e3f2fd;"">
+                    <a class=" navbar-brand">Navbar</a>
+            <form class="form-inline">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link" href="/">Casa</a></li>
+                        <li><a class="nav-link" href="/lista">Carrito</a></li>
+                        <li><a class="nav-link" href="/pedidos">Pedidos</a></li>
+                    </ul>
+                </div>
+            </form>
+        </nav>
+    </header>
+    {{end}}
